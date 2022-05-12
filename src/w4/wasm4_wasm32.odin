@@ -167,5 +167,6 @@ foreign wasm4 {
 	// Prints a message to the debug console.
 	@(link_name="traceUtf8")
 	trace :: proc(text: string) ---
-}
+    tracef :: proc(fmt:cstring, #c_vararg args: ..any) ---
 
+}
