@@ -6,7 +6,7 @@ import "w4"
 
 mode:= "game"
 
-@export update :: proc "c" () {
+@export update :: proc () {
     if      mode == "start" do startscreen()
     else if mode == "game"  do gamescreen()
     else if mode == "win"   do winscreen()

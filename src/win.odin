@@ -4,12 +4,15 @@ import "w4"
 
 winner :: proc "c" () -> bool   { return true }
 whowon :: proc "c" () -> string { return "p2"}
-
+wininit:= true
 winscreen :: proc "c" () {
-    w4.PALETTE[0] = 0xfff6d3
-    w4.PALETTE[1] = 0xf9a875
-    w4.PALETTE[2] = 0xeb6b6f
-    w4.PALETTE[3] = 0x7c3f58
+    if wininit {
+        w4.PALETTE[0] = 0xfff6d3
+        w4.PALETTE[1] = 0xf9a875
+        w4.PALETTE[2] = 0xeb6b6f
+        w4.PALETTE[3] = 0x7c3f58
+        wininit = false
+    }
 	w4.DRAW_COLORS^ = 3
     //w4.rect(0,0,160,160)
 

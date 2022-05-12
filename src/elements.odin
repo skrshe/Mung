@@ -13,7 +13,7 @@ Paddle :: struct {
     y: f32,
     x: f32,
     d: f32,
-    s: i32,
+    s: int,
     pad: ^w4.Buttons,
 }
 
