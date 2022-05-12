@@ -57,7 +57,7 @@ gamescreen :: proc "c" () {
 }
 
 updategame :: proc "c" () {
-    for i in 1..2 {
+    for i in 0..1 {
         p:= player[i]
         released:= true
 
