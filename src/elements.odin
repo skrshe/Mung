@@ -14,7 +14,7 @@ Paddle :: struct {
     x: f32,
     d: f32,
     s: i32,
-    pad: ^^w4.Buttons,
+    pad: ^w4.Buttons,
 }
 
 Player: [2]Paddle

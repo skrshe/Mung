@@ -13,12 +13,12 @@ mode:= "game"
     player[0] = {
         y = 70,
         x = 3,
-        pad = &w4.GAMEPAD1,
+        pad = w4.GAMEPAD1,
     }
     player[1] = {
         y = 70,
         x = 15,
-        pad = &w4.GAMEPAD2,
+        pad = w4.GAMEPAD2,
     }
 }
 
