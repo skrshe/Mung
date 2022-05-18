@@ -2,15 +2,11 @@ package main
 
 import "w4"
 //import "core:strings"
-
+import "core:unicode/utf8"
 ball:= Ball{80,80,-1,1}
 player:= Player
 
 @export start :: proc "c" () {
-}
-gameinit:= true
-gamescreen :: proc () {
-    if gameinit {
         player[0] = {
             y = 70,
             x = 3,
@@ -21,6 +17,10 @@ gamescreen :: proc () {
             x = 155,
             pad = w4.GAMEPAD2,
         }
+}
+gameinit:= true
+gamescreen :: proc () {
+    if gameinit {
         w4.PALETTE[0] = 0x071821
         w4.PALETTE[1] = 0x306850
         w4.PALETTE[2] = 0x86c06c
@@ -31,10 +31,11 @@ gamescreen :: proc () {
     updategame()
 
     for i in 0..1 {
-        b: []u8
-        pscore:= f64_to_string(b, f64(player[i].s), 2)
-	    w4.text(pscore, 60+((i32(i)-0)*3), 2)
-	    //w4.text("0", 70+(i32(i)*10), 2)
+        //b: [dynamic]rune
+        //append(&b, rune(player[i].s))
+        //pscore:=utf8.runes_to_string(b[:])
+	    //w4.text(pscore, 60+((i32(i)-0)*3), 2)
+	    w4.text("0", 72+(i32(i)*9), 2)
         w4.rect(i32(player[i].x),i32(player[i].y), 2, 12)
     }
 
@@ -48,38 +49,13 @@ gamescreen :: proc () {
 updategame :: proc "c" () {
     up1:= true
     up2:= true
-    //for i in 0..1 {
-    //    p:= player[i]
 
-    //    if .UP in p.pad^ {
-    //        p.d = -2.5
-
-    //        if i == 0 do up1 = false; else do up2 = false
-    //    }
-    //    if .DOWN in p.pad^ {
-    //        p.d = 2.5
-
-    //        if i == 0 do up1= false; else do up2 = false
-    //    }
-
-    //    friction:= false
-    //    if p.d != 0 {
-    //        if i == 0 && up1 == true do friction = true
-    //        else if i == 1 && up2 == true do friction = true
-    //    }
-    //    if friction == true do p.d /= 1.065
-
-    //    p.y += p.d
-
-    //    if p.y >= 146 do p.y = 146
-    //    if p.y < 2 do    p.y = 2
-    //}
     for i in 0..<len(player) {
 
         if .UP in player[i].pad^ {
             player[i].d = -2.5
             up1 = false
-            w4.tracef("y: %f", f64(player[i].x))
+            w4.tracef("y: %f", f64(player[i].y))
         }
         if .DOWN in player[i].pad^ {
             player[i].d = 2.5
