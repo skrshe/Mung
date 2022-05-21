@@ -3,10 +3,12 @@ package main
 import "w4"
 //import "core:strings"
 import "core:unicode/utf8"
+
 ball:= Ball{80,80,-1,1}
 player:= Player
 
-@export start :: proc "c" () {
+@export
+start :: proc "c" () {
         player[0] = {
             y = 70,
             x = 3,
@@ -18,6 +20,7 @@ player:= Player
             pad = w4.GAMEPAD2,
         }
 }
+
 gameinit:= true
 gamescreen :: proc () {
     if gameinit {
@@ -43,7 +46,7 @@ gamescreen :: proc () {
     w4.oval(i32(ball.x),i32(ball.y),2,2)
     //if winner() do mode == "win"
 	//w4.text("press z to continue", 10,130 )
-    //if .B in w4.GAMEPAD1^ do if winner() do mode="win"
+    if .B in w4.GAMEPAD1^ do if winner() do mode="win"
 }
 
 updategame :: proc "c" () {
@@ -84,9 +87,7 @@ updategame :: proc "c" () {
     ball.y += ball.dy
 }
 
-
-
-// num to string
+// num to string past here ---
 log10 :: proc (value: int) -> (res: int) {
     v := value
     for v > 0 {

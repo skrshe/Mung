@@ -4,6 +4,7 @@ import "w4"
 
 winner :: proc "c" () -> bool   { return true }
 whowon :: proc "c" () -> string { return "p2"}
+
 wininit:= true
 winscreen :: proc "c" () {
     if wininit {
