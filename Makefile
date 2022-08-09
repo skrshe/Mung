@@ -17,4 +17,4 @@ tux: build/cart.wasm
 win: build/cart.wasm
 	w4 bundle --windows build/mung.exe build/cart.wasm
 mac: build/cart.wasm
-	w4 bundle --mac build/mung build/cart.wasm
+	w4 bundle --mac build/mung.app build/cart.wasm
