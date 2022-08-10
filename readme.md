@@ -1,6 +1,8 @@
 # mung
 A pong game for mothers day (past)
 
+control flow at <https://skrshe.itch.io/mung>
+
 Suggestions welcome :).
 
 written in Odin for the [WASM-4](https://wasm4.org) fantasy console.
